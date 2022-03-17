@@ -1,4 +1,9 @@
-import qrcode
+try:
+    import qrcode
+except:
+    from os import system
+    system("pip install qrcode")
+    import qrcode
 class Bot():
     def createVCard(self,dados):
         return f'BEGIN:VCARD\nVERSION:3.0\nN:{dados["LastName"]} {dados["FirstName"]}\nFN:{dados["FirstName"]} {dados["LastName"]}\nORG:{dados["Company"]}\nTITLE:{dados["Title"]}\nEMAIL;WORK;INTERNET:{dados["Email"]}\nTEL;WORK;VOICE:{dados["Celular"]}\nADR;WORK;PREF:;;{dados["Address"]}\nURL:{dados["url"]}\nREV:1\nEND:VCARD\n'
