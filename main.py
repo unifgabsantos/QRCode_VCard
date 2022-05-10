@@ -3,7 +3,8 @@ from openpyxl import Workbook, load_workbook
 from openpyxl.utils import get_column_letter
 wb = load_workbook('Dados.xlsx') 
 ws = wb['Sheet1']
-for linha in range(2,165):
+numColaboradores = 163
+for linha in range(2,numColaboradores+2):
     firstName = ws["A"+str(linha)]._value
     lastName = ws["B"+str(linha)]._value
     fullName = f"{firstName} {lastName}"
